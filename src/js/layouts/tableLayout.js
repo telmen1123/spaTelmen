@@ -1,7 +1,13 @@
+
 import { safeValue } from "../fn/format.js";
 import { renderNotification } from "./notificationLayout.js";
 
-export function renderTable({ title = "", columns = [], rows = [], emptyMessage = "No data available." }) {
+export function renderTable({
+  title = "",
+  columns = [],
+  rows = [],
+  emptyMessage = "No data available.",
+}) {
   return `
     <div class="table-container app-tbl">
       ${
@@ -9,7 +15,7 @@ export function renderTable({ title = "", columns = [], rows = [], emptyMessage 
           ? `
             <h2 class="subtitle app-subtitle">
               ${safeValue(title)}
-            </h2>                       
+            </h2>
           `
           : ""
       }
@@ -20,7 +26,9 @@ export function renderTable({ title = "", columns = [], rows = [], emptyMessage 
             <table class="table is-striped is-bordered is-hoverable is-fullwidth">
               <thead>
                 <tr>
-                  ${columns.map((col) => `<th>${safeValue(col.label)}</th>`).join("")}
+                  ${columns
+                    .map((col) => `<th>${safeValue(col.label)}</th>`)
+                    .join("")}
                 </tr>
               </thead>
 
@@ -29,9 +37,21 @@ export function renderTable({ title = "", columns = [], rows = [], emptyMessage 
                   .map(
                     (row) => `
                       <tr>
-                        ${columns.map((col) => `<td>${safeValue(row[col.key])}</td>`).join("")}
+                        ${columns
+                          .map(
+                            (col) => `
+                              <td>
+                                ${
+                                  typeof col.render === "function"
+                                    ? col.render(row)
+                                    : safeValue(row[col.key])
+                                }
+                              </td>
+                            `
+                          )
+                          .join("")}
                       </tr>
-                    `,
+                    `
                   )
                   .join("")}
               </tbody>
