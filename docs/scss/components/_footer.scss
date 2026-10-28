@@ -1,0 +1,74 @@
+
+.app-footer {
+    position: relative;
+    z-index: 10;
+    margin-top: 3rem;
+    padding: 2.5rem 1.5rem;
+    background-color: #f8f9fa;
+    border-top: 1px solid #ddd;
+  
+    .title {
+      color: #23262f;
+      font-weight: 700;
+      margin-bottom: 1.5rem;
+    }
+  
+    // Bulma-ийн жагсаалтын тохиргоог дарах
+    .content ul.footer-partners {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+  
+    .content ul.footer-partners > li {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 1rem;
+      padding: 0;
+      list-style: none;
+    }
+  
+    // Логонуудыг ижил хэмжээтэй болгох
+    .content ul.footer-partners > li > img {
+      display: block;
+      width: 52px;
+      min-width: 52px;
+      max-width: 52px;
+      height: 42px;
+      max-height: 42px;
+      object-fit: contain;
+      flex-shrink: 0;
+      margin: 0;
+    }
+  
+    .footer-partners a {
+      flex: 1;
+      min-width: 0;
+      color: #3273dc;
+      line-height: 1.5;
+      text-decoration: none;
+    }
+  
+    .footer-partners a:hover {
+      text-decoration: underline;
+    }
+  
+    .content ul.footer-info-list {
+      margin-left: 0;
+      padding-left: 0;
+      list-style: none;
+    }
+  
+    .footer-info-list li {
+      margin-bottom: 0.8rem;
+      line-height: 1.6;
+    }
+  }
+  
+  @media screen and (max-width: 768px) {
+    .app-footer {
+      padding: 2rem 1rem;
+    }
+  }
+  

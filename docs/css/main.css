@@ -22812,23 +22812,25 @@ has-background-danger.is-hoverable:active {
   height: 100%;
   display: flex;
   flex-direction: column;
+  overflow: hidden;
 }
 
-.book-cover {
+.book-card .book-cover {
   width: 100%;
   display: block;
 }
 
-.book-description {
-  flex: 1;
-  text-align: justify;
+.book-card .book-description {
+  flex: 0 0 220px;
   height: 220px;
   min-height: 220px;
   max-height: 220px;
   overflow-y: auto;
+  text-align: justify;
 }
 
-.book-footer {
+.book-card .book-footer {
+  margin-top: auto;
   justify-content: center;
   padding: 1rem;
 }
@@ -22846,6 +22848,68 @@ has-background-danger.is-hoverable:active {
   border: 0;
 }
 
+.app-footer {
+  position: relative;
+  z-index: 10;
+  margin-top: 3rem;
+  padding: 2.5rem 1.5rem;
+  background-color: #f8f9fa;
+  border-top: 1px solid #ddd;
+}
+.app-footer .title {
+  color: #23262f;
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+}
+.app-footer .content ul.footer-partners {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.app-footer .content ul.footer-partners > li {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 1rem;
+  padding: 0;
+  list-style: none;
+}
+.app-footer .content ul.footer-partners > li > img {
+  display: block;
+  width: 52px;
+  min-width: 52px;
+  max-width: 52px;
+  height: 42px;
+  max-height: 42px;
+  object-fit: contain;
+  flex-shrink: 0;
+  margin: 0;
+}
+.app-footer .footer-partners a {
+  flex: 1;
+  min-width: 0;
+  color: #3273dc;
+  line-height: 1.5;
+  text-decoration: none;
+}
+.app-footer .footer-partners a:hover {
+  text-decoration: underline;
+}
+.app-footer .content ul.footer-info-list {
+  margin-left: 0;
+  padding-left: 0;
+  list-style: none;
+}
+.app-footer .footer-info-list li {
+  margin-bottom: 0.8rem;
+  line-height: 1.6;
+}
+
+@media screen and (max-width: 768px) {
+  .app-footer {
+    padding: 2rem 1rem;
+  }
+}
 .app-mobile-sidebar {
   display: none;
   border-bottom: 1px solid var(--border);
@@ -22960,6 +23024,7 @@ has-background-danger.is-hoverable:active {
 @media screen and (max-width: 768px) {
   .app-shell {
     display: block;
+    height: auto;
   }
   .app-mobile-sidebar {
     display: block;
