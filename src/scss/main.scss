@@ -1,6 +1,7 @@
+
 @use "sass:color";
 
-// variables
+// Variables
 $primaryColor: #2bac73;
 $primaryColorDark: color.scale($primaryColor, $lightness: -15%);
 
@@ -9,7 +10,7 @@ $secondaryColorDark: color.scale($secondaryColor, $lightness: -15%);
 
 :root {
   --border: #ececf2;
-  --sidebar-width: clamp(280px, 22vw, 340px); // Sidebar-ийн өргөн (280px-340px хооронд, дэлгэцийн 22%-ийг эзэлнэ)
+  --sidebar-width: clamp(280px, 22vw, 340px);
   --sidebar-bg: #ffffff;
   --page-bg: #ffffff;
   --text-main: #23262f;
@@ -22,54 +23,42 @@ $secondaryColorDark: color.scale($secondaryColor, $lightness: -15%);
   --overlay: rgba(15, 23, 42, 0.55);
 }
 
+// Bulma
 @import "../../node_modules/bulma/bulma";
 
+// Components
 @import "./components/buttons";
 @import "./components/navbar";
-@import "./layouts/sidebarPageLayout";
 @import "./components/sidebarMenuList";
-@import "./layouts/pageTableContentsLayout";
 @import "./components/imageModal";
 @import "./components/map";
 @import "./components/overviewText";
 
+// 2.12 Books Page
+@import "./components/bookCard";
+@import "./components/pdfModal";
 
-// Mobile (<768px) → Sidebar = slide menu (hidden → open)
-// Tablet (≤1023px) → зөвхөн хэмжээ багасгана
-// Desktop (≥769px) → Sidebar = байнга харагдана (static)
+// Layouts
+@import "./layouts/sidebarPageLayout";
+@import "./layouts/pageTableContentsLayout";
 
-/* =========================
-   DESKTOP (>=769px)
-========================= */
+// DESKTOP
 @media screen and (min-width: 769px) {
   .app-mobile-sidebar,
   .app-sidebar-mobile-head {
-    /* Mobile-д зориулсан элементүүдийг нуух */
     display: none;
   }
 
   .app-sidebar {
-    /* Sidebar-г буцааж хэвийн layout-д оруулна */
     position: static;
-
-    /* translate animation-г устгана */
     transform: none;
-
     height: auto;
-
-    /* Mobile shadow-г арилгана */
     box-shadow: none;
   }
 }
 
-/* =========================
-   TABLET (<=1024px)
-========================= */
+// TABLET
 @media screen and (max-width: 1023px) {
-  // .app-main-content {
-  //   padding: 2rem 2rem 2.5rem; /* Desktop-оос арай бага padding */
-  // }
-
   .app-title {
     line-height: 1.1;
     margin-bottom: 0.9rem;
@@ -84,21 +73,19 @@ $secondaryColorDark: color.scale($secondaryColor, $lightness: -15%);
   }
 }
 
-/* =========================
-   MOBILE (<=768px)
-========================= */
+// MOBILE
 @media screen and (max-width: 768px) {
   .app-shell {
-    display: block; /* Sidebar + main layout-ийг stack болгоно */
+    display: block;
   }
 
   .app-mobile-sidebar {
-    display: block; /* Mobile дээр гарч ирэх ↪ button */
+    display: block;
   }
 
   .app-sidebar {
     display: block;
-    position: fixed; /* Sidebar-г fixed болгож slide menu болгоно */
+    position: fixed;
     top: 0;
     left: 0;
     width: 320px;
@@ -111,27 +98,20 @@ $secondaryColorDark: color.scale($secondaryColor, $lightness: -15%);
     border-bottom: 0;
     padding: 1rem 1rem 2rem;
     overflow-y: auto;
-    /* Sidebar-г default үед нуух (зүүн тийш гаргана) */
     transform: translateX(-100%);
     transition: transform 0.28s ease;
     box-shadow: 10px 0 30px rgba(0, 0, 0, 0.14);
   }
 
   .app-sidebar.is-open {
-    transform: translateX(0); /* Нээгдэх үед буцааж харуулна */
+    transform: translateX(0);
   }
 
   .app-sidebar-mobile-head {
-    /* Close button байрлах хэсэг */
     display: flex;
     justify-content: flex-end;
     margin-bottom: 0.75rem;
   }
-
-  // .app-main-content {
-  //   /* Mobile дээр padding багасгана */
-  //   padding: 1.25rem 1rem 2rem;
-  // }
 
   .app-title {
     font-size: 1.65rem;
@@ -143,19 +123,14 @@ $secondaryColorDark: color.scale($secondaryColor, $lightness: -15%);
     line-height: 1.5;
     margin-bottom: 1.75rem;
   }
+
   .app-tbl {
     font-size: 0.7rem;
   }
 }
 
-/* =========================
-   SMALL MOBILE (<=480px)
-========================= */
+// SMALL MOBILE
 @media screen and (max-width: 480px) {
-  // .app-main-content {
-  //   padding: 1rem 0.9rem 1.5rem;
-  // }
-
   .app-title {
     font-size: 1.45rem;
   }

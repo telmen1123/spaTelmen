@@ -1,0 +1,27 @@
+
+.book-card {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.book-card .book-cover {
+  width: 100%;
+  display: block;
+}
+
+.book-card .book-description {
+  flex: 0 0 220px;
+  height: 220px;
+  min-height: 220px;
+  max-height: 220px;
+  overflow-y: auto;
+  text-align: justify;
+}
+
+.book-card .book-footer {
+  margin-top: auto;
+  justify-content: center;
+  padding: 1rem;
+}

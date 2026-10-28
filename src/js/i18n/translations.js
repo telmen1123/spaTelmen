@@ -1,3 +1,4 @@
+
 export const translations = {
   mn: {
     nav: {
@@ -12,6 +13,10 @@ export const translations = {
     },
     overview: {
       title: "Мэдээллийн сангийн танилцуулга",
+    },
+    books: {
+      title: "Номууд",
+      view: "Үзэх",
     },
     search: {
       title: "Хүнс хайх",
@@ -118,6 +123,7 @@ export const translations = {
       informationWillAppear: "Мэдээлэл энд харагдана.",
     },
   },
+
   en: {
     nav: {
       overview: "Overview",
@@ -131,6 +137,10 @@ export const translations = {
     },
     overview: {
       title: "Food Composition Database Introduction",
+    },
+    books: {
+      title: "Books",
+      view: "View",
     },
     search: {
       title: "Food search",
